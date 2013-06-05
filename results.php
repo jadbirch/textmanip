@@ -1,13 +1,11 @@
     <?php
-//if the user has actually been to index.php first, allow the rest of the code to run - if not, send them back to that page
-//bring in the head
     	require('head.php');
 /**THIS IS THE BEGINNING OF BRINGING IN INPUTS FROM INDEX.PHP**/
 //make $haystack the textarea from index.php
-            if($_FILES["file"]["tmp_name"]!= ""){
-                $haystack = file_get_contents($_FILES["file"]["tmp_name"]);
-            } else { 
-    		$haystack =  ($_POST["text"]);
+        if($_FILES["file"]["tmp_name"]!= ""){
+            $haystack = file_get_contents($_FILES["file"]["tmp_name"]);
+        } else { 
+		$haystack =  ($_POST["text"]);
         }
 //make a copy of $haystack that removes whitespace early in the file so it can be used in the manipulations below
     		$haystacktrimmed = preg_replace('/\s+/', '', $haystack);
